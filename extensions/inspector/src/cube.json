@@ -1,0 +1,499 @@
+{
+  "active": {
+    "value": true,
+    "default": null,
+    "type": "Boolean",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Active",
+    "extends": []
+  },
+  "locked": {
+    "value": false,
+    "default": false,
+    "type": "Boolean",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Locked",
+    "extends": []
+  },
+  "name": {
+    "value": "Cube",
+    "default": null,
+    "type": "String",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Name",
+    "extends": []
+  },
+  "position": {
+    "value": { "x": -10, "y": 10, "z": 10 },
+    "default": { "x": 0, "y": 0, "z": 0 },
+    "type": "cc.Vec3",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Position",
+    "extends": ["cc.ValueType"]
+  },
+  "rotation": {
+    "value": { "x": -35.000000000000014, "y": -45.00000000000001, "z": 0 },
+    "default": { "x": 0, "y": 0, "z": 0 },
+    "type": "cc.Vec3",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Rotation",
+    "extends": ["cc.ValueType"]
+  },
+  "scale": {
+    "value": {
+      "x": 0.9999999999999999,
+      "y": 0.9999999999999999,
+      "z": 0.9999999999999999
+    },
+    "default": { "x": 1, "y": 1, "z": 1 },
+    "type": "cc.Vec3",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Scale",
+    "extends": ["cc.ValueType"]
+  },
+  "layer": {
+    "value": 1073741824,
+    "default": 1073741824,
+    "type": "Enum",
+    "readonly": false,
+    "visible": true,
+    "enumList": [
+      { "name": "NONE", "value": 0 },
+      { "name": "IGNORE_RAYCAST", "value": 1048576 },
+      { "name": "GIZMOS", "value": 2097152 },
+      { "name": "EDITOR", "value": 4194304 },
+      { "name": "UI_3D", "value": 8388608 },
+      { "name": "SCENE_GIZMO", "value": 16777216 },
+      { "name": "UI_2D", "value": 33554432 },
+      { "name": "PROFILER", "value": 268435456 },
+      { "name": "DEFAULT", "value": 1073741824 },
+      { "name": "ALL", "value": 4294967295 }
+    ],
+    "displayName": "Layer",
+    "extends": []
+  },
+  "uuid": {
+    "value": "9f0k5DGF5OEqAWADDLNQpu",
+    "default": null,
+    "type": "String",
+    "readonly": false,
+    "visible": true,
+    "displayName": "UUID",
+    "extends": []
+  },
+  "parent": {
+    "value": { "uuid": "f46876e4-e81b-4931-b493-6d367be385e7" },
+    "type": "cc.Node",
+    "readonly": false,
+    "visible": true,
+    "extends": ["cc.BaseNode", "cc.Object"]
+  },
+  "children": [],
+  "__type__": "cc.Node",
+  "__comps__": [
+    {
+      "value": {
+        "uuid": {
+          "value": "a7fBWiNidHEKocHIcL3ayX",
+          "default": null,
+          "type": "String",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "name": {
+          "value": "Cube<ModelComponent>",
+          "default": null,
+          "type": "String",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "enabled": {
+          "value": true,
+          "default": null,
+          "type": "Boolean",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "_name": {
+          "name": "_name",
+          "value": "Cube<ModelComponent>",
+          "default": "",
+          "type": "String",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "_objFlags": {
+          "name": "_objFlags",
+          "value": 63488,
+          "default": 0,
+          "type": "Number",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "__editorExtras__": {
+          "name": "__editorExtras__",
+          "value": null,
+          "default": {},
+          "type": "Unknown",
+          "readonly": false,
+          "visible": false
+        },
+        "__scriptAsset": {
+          "name": "__scriptAsset",
+          "value": {},
+          "type": "cc.Script",
+          "readonly": true,
+          "visible": false,
+          "displayName": "Script",
+          "tooltip": "i18n:INSPECTOR.component.script",
+          "animatable": false,
+          "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"],
+          "displayOrder": -999
+        },
+        "node": {
+          "name": "node",
+          "value": { "uuid": "9f0k5DGF5OEqAWADDLNQpu" },
+          "default": null,
+          "type": "cc.Node",
+          "readonly": false,
+          "visible": false,
+          "extends": ["cc.BaseNode", "cc.Object"]
+        },
+        "_enabled": {
+          "name": "_enabled",
+          "value": true,
+          "default": true,
+          "type": "Boolean",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "__prefab": {
+          "name": "__prefab",
+          "value": null,
+          "default": null,
+          "type": "Unknown",
+          "readonly": false,
+          "visible": false
+        },
+        "_visFlags": {
+          "name": "_visFlags",
+          "value": 0,
+          "default": 0,
+          "type": "Number",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "sharedMaterials": {
+          "name": "sharedMaterials",
+          "value": [
+            {
+              "value": { "uuid": "d3c7820c-2a98-4429-8bc7-b8453bc9ac41" },
+              "default": null,
+              "type": "cc.Material",
+              "readonly": false,
+              "visible": true,
+              "displayName": "Materials",
+              "displayOrder": 0,
+              "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"]
+            }
+          ],
+          "type": "cc.Material",
+          "readonly": false,
+          "visible": true,
+          "displayName": "Materials",
+          "displayOrder": 0,
+          "isArray": true,
+          "elementTypeData": {
+            "value": { "uuid": "" },
+            "default": null,
+            "type": "cc.Material",
+            "readonly": false,
+            "visible": true,
+            "displayName": "Materials",
+            "displayOrder": 0,
+            "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"]
+          },
+          "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"]
+        },
+        "_materials": {
+          "name": "_materials",
+          "value": [
+            {
+              "value": { "uuid": "d3c7820c-2a98-4429-8bc7-b8453bc9ac41" },
+              "default": null,
+              "type": "cc.Material",
+              "readonly": false,
+              "visible": false,
+              "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"]
+            }
+          ],
+          "default": [],
+          "type": "cc.Material",
+          "readonly": false,
+          "visible": false,
+          "isArray": true,
+          "elementTypeData": {
+            "value": { "uuid": "" },
+            "default": null,
+            "type": "cc.Material",
+            "readonly": false,
+            "visible": false,
+            "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"]
+          },
+          "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"]
+        },
+        "lightmapSettings": {
+          "name": "lightmapSettings",
+          "value": {
+            "texture": {
+              "name": "texture",
+              "value": null,
+              "default": null,
+              "type": "Unknown",
+              "readonly": false,
+              "visible": false
+            },
+            "uvParam": {
+              "name": "uvParam",
+              "value": { "x": 0, "y": 0, "z": 0, "w": 0 },
+              "default": { "x": 0, "y": 0, "z": 0, "w": 0 },
+              "type": "cc.Vec4",
+              "readonly": false,
+              "visible": false,
+              "extends": ["cc.ValueType"]
+            },
+            "_bakeable": {
+              "name": "_bakeable",
+              "value": false,
+              "default": false,
+              "type": "Boolean",
+              "readonly": false,
+              "visible": false,
+              "extends": []
+            },
+            "_castShadow": {
+              "name": "_castShadow",
+              "value": false,
+              "default": false,
+              "type": "Boolean",
+              "readonly": false,
+              "visible": false,
+              "extends": []
+            },
+            "_receiveShadow": {
+              "name": "_receiveShadow",
+              "value": false,
+              "default": false,
+              "type": "Boolean",
+              "readonly": false,
+              "visible": false,
+              "extends": []
+            },
+            "_lightmapSize": {
+              "name": "_lightmapSize",
+              "value": 64,
+              "default": 64,
+              "type": "Number",
+              "readonly": false,
+              "visible": false,
+              "extends": []
+            },
+            "bakeable": {
+              "name": "bakeable",
+              "value": false,
+              "type": "Boolean",
+              "readonly": false,
+              "visible": true,
+              "extends": []
+            },
+            "castShadow": {
+              "name": "castShadow",
+              "value": false,
+              "type": "Boolean",
+              "readonly": false,
+              "visible": true,
+              "extends": []
+            },
+            "receiveShadow": {
+              "name": "receiveShadow",
+              "value": false,
+              "type": "Boolean",
+              "readonly": false,
+              "visible": true,
+              "extends": []
+            },
+            "lightmapSize": {
+              "name": "lightmapSize",
+              "value": 64,
+              "type": "Number",
+              "readonly": false,
+              "visible": true,
+              "extends": []
+            }
+          },
+          "default": {
+            "texture": null,
+            "uvParam": { "x": 0, "y": 0, "z": 0, "w": 0 },
+            "_bakeable": false,
+            "_castShadow": false,
+            "_receiveShadow": false,
+            "_lightmapSize": 64
+          },
+          "type": "cc.ModelLightmapSettings",
+          "readonly": false,
+          "visible": true,
+          "animatable": false,
+          "extends": []
+        },
+        "_mesh": {
+          "name": "_mesh",
+          "value": { "uuid": "1263d74c-8167-4928-91a6-4e2672411f47@a804a" },
+          "default": null,
+          "type": "cc.Mesh",
+          "readonly": false,
+          "visible": false,
+          "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"]
+        },
+        "_shadowCastingMode": {
+          "name": "_shadowCastingMode",
+          "value": 0,
+          "default": 0,
+          "type": "Number",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "_shadowReceivingMode": {
+          "name": "_shadowReceivingMode",
+          "value": 1,
+          "default": 1,
+          "type": "Number",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "_shadowBias": {
+          "name": "_shadowBias",
+          "value": 0,
+          "default": 0,
+          "type": "Number",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "_shadowNormalBias": {
+          "name": "_shadowNormalBias",
+          "value": 0,
+          "default": 0,
+          "type": "Number",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        },
+        "shadowBias": {
+          "name": "shadowBias",
+          "value": 0,
+          "type": "Float",
+          "readonly": false,
+          "visible": true,
+          "group": { "name": "DynamicShadowSettings", "displayOrder": 0 },
+          "tooltip": "i18n:model.shadow_bias",
+          "animatable": false,
+          "extends": []
+        },
+        "shadowNormalBias": {
+          "name": "shadowNormalBias",
+          "value": 0,
+          "type": "Float",
+          "readonly": false,
+          "visible": true,
+          "group": { "name": "DynamicShadowSettings", "displayOrder": 1 },
+          "tooltip": "i18n:model.shadow_normal_bias",
+          "animatable": false,
+          "extends": []
+        },
+        "shadowCastingMode": {
+          "name": "shadowCastingMode",
+          "value": 0,
+          "type": "Enum",
+          "readonly": false,
+          "visible": true,
+          "enumList": [
+            { "name": "OFF", "value": 0 },
+            { "name": "ON", "value": 1 }
+          ],
+          "group": { "name": "DynamicShadowSettings", "displayOrder": 2 },
+          "tooltip": "i18n:model.shadow_casting_model",
+          "animatable": false,
+          "extends": []
+        },
+        "receiveShadow": {
+          "name": "receiveShadow",
+          "value": 1,
+          "type": "Enum",
+          "readonly": false,
+          "visible": true,
+          "enumList": [
+            { "name": "OFF", "value": 0 },
+            { "name": "ON", "value": 1 }
+          ],
+          "group": { "name": "DynamicShadowSettings", "displayOrder": 3 },
+          "tooltip": "i18n:model.shadow_receiving_model",
+          "animatable": false,
+          "extends": []
+        },
+        "mesh": {
+          "name": "mesh",
+          "value": { "uuid": "1263d74c-8167-4928-91a6-4e2672411f47@a804a" },
+          "type": "cc.Mesh",
+          "readonly": false,
+          "visible": true,
+          "tooltip": "i18n:model.mesh",
+          "extends": ["cc.Asset", "Eventified", "cc.GCObject", "cc.Object"]
+        },
+        "enableMorph": {
+          "name": "enableMorph",
+          "value": true,
+          "type": "Boolean",
+          "readonly": false,
+          "visible": false,
+          "animatable": false,
+          "extends": []
+        },
+        "_enableMorph": {
+          "name": "_enableMorph",
+          "value": true,
+          "default": true,
+          "type": "Boolean",
+          "readonly": false,
+          "visible": false,
+          "extends": []
+        }
+      },
+      "type": "cc.MeshRenderer",
+      "readonly": false,
+      "visible": true,
+      "cid": "cc.MeshRenderer",
+      "editor": {
+        "inspector": "",
+        "icon": "",
+        "help": "i18n:cc.MeshRenderer",
+        "_showTick": true
+      },
+      "extends": ["cc.RenderableComponent", "cc.Component", "cc.Object"]
+    }
+  ]
+}
