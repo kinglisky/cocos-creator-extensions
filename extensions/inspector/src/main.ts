@@ -1,4 +1,5 @@
 import packageJSON from '../package.json';
+
 /**
  * @en
  * @zh 为扩展的主进程的注册方法

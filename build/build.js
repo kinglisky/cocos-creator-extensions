@@ -4,9 +4,11 @@ const { build } = require('vite');
 const inspectorDir = path.resolve(__dirname, '../extensions/inspector');
 
 async function main() {
-  await build({
+  const config = await build({
     root: inspectorDir,
+    build: { watch: {} },
   });
+  return config;
 }
 
 main();

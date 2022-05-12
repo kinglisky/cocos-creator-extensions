@@ -1,0 +1,77 @@
+{
+  "active": {
+    "value": true,
+    "default": null,
+    "type": "Boolean",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Active",
+    "extends": []
+  },
+  "locked": {
+    "value": false,
+    "default": false,
+    "type": "Boolean",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Locked",
+    "extends": []
+  },
+  "name": {
+    "value": "Cube",
+    "default": null,
+    "type": "String",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Name",
+    "extends": []
+  },
+  "position": {
+    "value": { "x": 0, "y": 0, "z": 0 },
+    "default": { "x": 0, "y": 0, "z": 0 },
+    "type": "cc.Vec3",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Position",
+    "extends": ["cc.ValueType"]
+  },
+  "rotation": {
+    "value": { "x": 0, "y": 0, "z": 0 },
+    "default": { "x": 0, "y": 0, "z": 0 },
+    "type": "cc.Vec3",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Rotation",
+    "extends": ["cc.ValueType"]
+  },
+  "scale": {
+    "value": { "x": 1, "y": 1, "z": 1 },
+    "default": { "x": 1, "y": 1, "z": 1 },
+    "type": "cc.Vec3",
+    "readonly": false,
+    "visible": true,
+    "displayName": "Scale",
+    "extends": ["cc.ValueType"]
+  },
+  "layer": {
+    "value": 1073741824,
+    "default": 1073741824,
+    "type": "Enum",
+    "readonly": false,
+    "visible": true,
+    "enumList": [
+      { "name": "NONE", "value": 0 },
+      { "name": "IGNORE_RAYCAST", "value": 1048576 },
+      { "name": "GIZMOS", "value": 2097152 },
+      { "name": "EDITOR", "value": 4194304 },
+      { "name": "UI_3D", "value": 8388608 },
+      { "name": "SCENE_GIZMO", "value": 16777216 },
+      { "name": "UI_2D", "value": 33554432 },
+      { "name": "PROFILER", "value": 268435456 },
+      { "name": "DEFAULT", "value": 1073741824 },
+      { "name": "ALL", "value": 4294967295 }
+    ],
+    "displayName": "Layer",
+    "extends": []
+  }
+}

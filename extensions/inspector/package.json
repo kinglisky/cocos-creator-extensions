@@ -1,46 +1,55 @@
 {
-    "name": "@cocos-ext/inspector",
-    "private": true,
-    "version": "0.0.0",
-    "scripts": {
-        "dev": "vite",
-        "build": "vue-tsc --noEmit && vite build",
-        "preview": "vite preview"
-    },
-    "main": "dist/main.js",
-    "module": "dist/main.js",
-    "panels": {
-        "default": {
-            "title": "插件自定义面板",
-            "type": "dockable",
-            "main": "./dist/panel.js",
-            "icon": "./dist/icon.png"
-        }
-    },
-    "contributions": {
-        "menu": [
-            {
-                "path": "i18n:menu.panel/inspector",
-                "label": "i18n:simple-vue.open_panel",
-                "message": "open-panel"
-            }
-        ],
-        "messages": {
-            "open-panel": {
-                "methods": [
-                    "openPanel"
-                ]
-            }
-        }
-    },
-    "dependencies": {
-        "vue": "^3.2.25"
-    },
-    "devDependencies": {
-        "@cocos-pkg/types": "workspace:^1.0.0",
-        "@vitejs/plugin-vue": "^2.3.1",
-        "typescript": "^4.5.4",
-        "vite": "^2.9.7",
-        "vue-tsc": "^0.34.7"
+  "name": "cocos-ext-inspector",
+  "private": true,
+  "version": "0.0.0",
+  "package_version": 2,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "main": "dist/main.js",
+  "module": "dist/main.js",
+  "panels": {
+    "default": {
+      "title": "插件自定义面板",
+      "type": "dockable",
+      "main": "./dist/panel.js",
+      "icon": "./dist/icon.png"
     }
+  },
+  "contributions": {
+    "menu": [
+      {
+        "path": "i18n:menu.panel/inspector",
+        "label": "打开面板",
+        "message": "open-panel"
+      },
+      {
+        "path": "i18n:menu.panel/inspector",
+        "label": "显示插件路径",
+        "message": "show-path"
+      }
+    ],
+    "messages": {
+      "open-panel": {
+        "methods": [
+          "openPanel"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "@lljj/vue3-form-element": "^1.12.2",
+    "element-plus": "^2.2.0",
+    "vite-plugin-shadow-dom-css": "^0.0.2",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@cocos-pkg/types": "workspace:^1.0.0",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.7",
+    "vue-tsc": "^0.34.7"
+  }
 }
