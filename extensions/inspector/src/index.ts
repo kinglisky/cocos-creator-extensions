@@ -1,58 +1,49 @@
 import { App, ref } from 'vue';
 import { create } from './app';
+// @ts-ignore
 import elementPlusStyles from 'element-plus/dist/index.css?row';
-// 所有样式
+// @ts-ignore
+// 单文件所有样式
+import allStyle from `virtual:style-provider?query=*`; 
 
 let app: App<Element> | null = null;
 
 const template = `<div id="app"></div>`;
 const style = elementPlusStyles.replaceAll(':root', ':host');
 const $ = {
-    app: '#app',
+  app: '#app',
 };
 
-const nodeId = ref('');
-
-function updateSelectedNodeId(type: string, id: string) {
-    nodeId.value = id;
-}
-
 module.exports = Editor.Panel.define({
-    template,
-    style,
-    $,
-    methods: {},
-    listeners: {
-        show(...args) {
-            console.log('show', args);
-        },
-        hide(...args) {
-            console.log('hide', args);
-        },
+  template,
+  style,
+  $,
+  methods: {},
+  listeners: {
+    show() {
+      console.log('show');
     },
+    hide() {
+      console.log('hide');
+    },
+  },
 
-    update(...args) {
-        console.log('update', args);
-    },
+  update() {
+    console.log('update');
+  },
 
-    async ready(...args) {
-        console.log('ready', args);
-        if (this.$.app) {
-            if (!app) {
-                app = create(nodeId);
-                app.mount(this.$.app);
-                Editor.Message.addBroadcastListener('selection:select', updateSelectedNodeId);
-                if (!nodeId.value) {
-                    const nodeIds = await Editor.Selection.getSelected('node');
-                    if (nodeIds.length) {
-                        updateSelectedNodeId('node', nodeIds[0]);
-                    }
-                }
-            }
-        }
-    },
+  async ready() {
+    console.log('ready');
+    if (!this.$.app) return;
 
-    close() {
-        Editor.Message.removeBroadcastListener('selection:select', updateSelectedNodeId);
-    },
+    allStyle(this.$.app.parentNode).mount();
+    if (!app) {
+      app = create();
+      app.mount(this.$.app);
+    }
+  },
+
+  close() {
+      console.log('close');
+  },
 });

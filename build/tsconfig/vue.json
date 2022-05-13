@@ -11,11 +11,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "skipLibCheck": true,
-    "typeRoots": [
-      "../../node_modules/@types",
-      "../../node_modules/@cocos-pkg/types"
-    ]
+    "skipLibCheck": true
   },
   "references": [{ "path": "./node.json" }]
 }
