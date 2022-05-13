@@ -1,23 +1,23 @@
 import { App, ref } from 'vue';
 import { create } from './app';
 // @ts-ignore
-import elementPlusStyles from 'element-plus/dist/index.css?row';
+import elementPlusCssContent from 'element-plus/dist/index.css?row';
+// @ts-ignore
+import elementPlusStyleProvider from 'element-plus/dist/index.css?style-provider';
 // @ts-ignore
 // 单文件所有样式
-import allStyle from `virtual:style-provider?query=*`; 
+import sfcStyleProvider from `virtual:style-provider?query=*`;
 
 let app: App<Element> | null = null;
 
-const template = `<div id="app"></div>`;
-const style = elementPlusStyles.replaceAll(':root', ':host');
-const $ = {
-  app: '#app',
-};
+const style = elementPlusCssContent.replaceAll(':root', ':host');
 
 module.exports = Editor.Panel.define({
-  template,
+  template: `<div id="app"></div>`,
   style,
-  $,
+  $: {
+    app: '#app',
+  },
   methods: {},
   listeners: {
     show() {
@@ -35,8 +35,8 @@ module.exports = Editor.Panel.define({
   async ready() {
     console.log('ready');
     if (!this.$.app) return;
-
-    allStyle(this.$.app.parentNode).mount();
+    elementPlusStyleProvider(document.head).mount();
+    sfcStyleProvider(this.$.app.parentNode).mount();
     if (!app) {
       app = create();
       app.mount(this.$.app);

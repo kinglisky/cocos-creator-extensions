@@ -24,11 +24,6 @@
         "path": "i18n:menu.panel/inspector",
         "label": "打开面板",
         "message": "open-panel"
-      },
-      {
-        "path": "i18n:menu.panel/inspector",
-        "label": "显示插件路径",
-        "message": "show-path"
       }
     ],
     "messages": {

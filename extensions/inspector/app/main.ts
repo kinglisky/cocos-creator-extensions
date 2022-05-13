@@ -1,4 +1,4 @@
-import packageJSON from '../package.json';
+import { name } from '../package.json';
 
 /**
  * @en
@@ -6,7 +6,7 @@ import packageJSON from '../package.json';
  */
 export const methods: Record<string, (...any: any) => any> = {
   openPanel() {
-    Editor.Panel.open(packageJSON.name);
+    Editor.Panel.open(name);
   },
 };
 
