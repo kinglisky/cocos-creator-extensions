@@ -5,9 +5,9 @@ import { name } from '../package.json';
  * @zh 为扩展的主进程的注册方法
  */
 export const methods: Record<string, (...any: any) => any> = {
-  openPanel() {
-    Editor.Panel.open(name);
-  },
+    openPanel() {
+        Editor.Panel.open(name);
+    },
 };
 
 /**
@@ -23,7 +23,7 @@ export function load() {}
 export function unload() {}
 
 module.exports = {
-  methods,
-  load,
-  unload,
+    methods,
+    load,
+    unload,
 };
