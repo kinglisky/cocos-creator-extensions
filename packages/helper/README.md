@@ -77,6 +77,16 @@ export default defineConfig({
 
 outDir 结构：
 
-```base
-
+```
+.
+├── assets
+│   └── panel.e388cfa6.css
+├── i18n
+│   ├── en.js
+│   └── zh.js
+├── main.js
+├── package.json
+├── panel.js
+└── static
+    └── icon.png
 ```
