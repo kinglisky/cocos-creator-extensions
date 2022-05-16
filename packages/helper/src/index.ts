@@ -93,7 +93,7 @@ export default function cocosRollupHelper(
             );
             // 判断是否需要 manifest 文件
             if (!originManifest) {
-                Reflect.deleteProperty(bundle, 'manifest.json');
+                await fs.promises.unlink(`${options.dir}/manifest.json`);
             }
         },
     };
