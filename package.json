@@ -1,10 +1,12 @@
 {
-    "name": "cocos-creator-extensions",
+    "name": "cocos-extensions",
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "node build/start.js",
-        "build": "node build/build.js"
+        "dev:helper": "pnpm -C ./packages/helper dev",
+        "dev:inspector": "pnpm -C ./extensions/inspector dev",
+        "build:helper": "pnpm -C ./packages/helper build",
+        "build:inspector": "pnpm -C ./extensions/inspector build"
     },
     "keywords": [],
     "author": "",

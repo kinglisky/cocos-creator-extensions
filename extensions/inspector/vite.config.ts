@@ -2,7 +2,8 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import shadowDomCss from 'vite-plugin-shadow-dom-css';
-import cocosHelper from '@cocos-pkg/cocos-helper';
+// @ts-ignore
+import cocosHelper from 'vite-plugin-cocos-helper';
 import packageJSON from './package.json';
 
 // https://vitejs.dev/config/
@@ -19,8 +20,8 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                main: path.join(__dirname, 'app/main.ts'),
-                panel: path.join(__dirname, 'app/panel/index.ts'),
+                main: path.join(__dirname, './app/main.ts'),
+                panel: path.join(__dirname, './app/panel/index.ts'),
             },
             output: {
                 format: 'cjs',
@@ -28,8 +29,7 @@ export default defineConfig({
                 chunkFileNames: 'chunks/[name].js',
             },
         },
-        manifest: true,
-        minify: false,
+        minify: true,
         emptyOutDir: false,
     },
 });

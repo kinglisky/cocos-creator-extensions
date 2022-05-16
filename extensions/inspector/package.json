@@ -1,21 +1,20 @@
 {
-    "name": "cocos-ext-inspector",
+    "name": "@cocos-extensions/inspector-example",
     "private": true,
     "version": "0.0.0",
     "package_version": 2,
     "scripts": {
-        "dev": "vite",
-        "build": "vue-tsc --noEmit && vite build",
-        "preview": "vite preview"
+        "dev": "vue-tsc --noEmit && vite build -w",
+        "build": "vue-tsc --noEmit && vite build"
     },
-    "main": "dist/main.js",
-    "module": "dist/main.js",
+    "main": "app/main.ts",
+    "module": "app/main.ts",
     "panels": {
         "default": {
             "title": "插件自定义面板",
             "type": "dockable",
-            "main": "./dist/panel.js",
-            "icon": "./dist/icon.png"
+            "main": "app/panel/index.ts",
+            "icon": "static/icon.png"
         }
     },
     "contributions": {
@@ -38,15 +37,17 @@
         "@lljj/vue3-form-element": "^1.12.2",
         "element-plus": "^2.2.0",
         "lodash": "^4.17.21",
-        "vite-plugin-shadow-dom-css": "^0.0.2",
         "vue": "^3.2.25"
     },
     "devDependencies": {
-        "@cocos-pkg/types": "workspace:^1.0.0",
-        "@cocos-pkg/cocos-helper": "workspace:^0.0.0",
+        "vite-plugin-cocos-helper": "workspace:^0.0.0",
+        "@cocos-extensions/types": "workspace:^1.0.0",
+        "@types/lodash": "^4.14.182",
         "@vitejs/plugin-vue": "^2.3.1",
         "typescript": "^4.5.4",
         "vite": "^2.9.7",
+        "vite-plugin-inspect": "^0.5.0",
+        "vite-plugin-shadow-dom-css": "^0.0.2",
         "vue-tsc": "^0.34.7"
     }
 }

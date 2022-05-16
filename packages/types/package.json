@@ -1,23 +1,24 @@
 {
-  "name": "@cocos-pkg/types",
-  "description": "cocos creator type definition",
-  "version": "1.0.0",
-  "module": "./",
-  "types": "./",
-  "keywords": [
-    "typescript",
-    "cc",
-    "cocos creator",
-    "declaration"
-  ],
-  "author": "linlei <linlei@cocos.com>",
-  "files": [
-    "editor.d.ts",
-    "electron.d.ts",
-    "extension.d.ts",
-    "index.d.ts",
-    "message.d.ts",
-    "cc.d.ts",
-    "cc.editor.d.ts"
-  ]
+    "name": "@cocos-extensions/types",
+    "description": "cocos creator type definition",
+    "version": "1.0.0",
+    "module": "index.d.ts",
+    "main": "index.d.ts",
+    "types": "index.d.ts",
+    "keywords": [
+        "typescript",
+        "cc",
+        "cocos creator",
+        "declaration"
+    ],
+    "author": "linlei <linlei@cocos.com>",
+    "files": [
+        "editor.d.ts",
+        "electron.d.ts",
+        "extension.d.ts",
+        "index.d.ts",
+        "message.d.ts",
+        "cc.d.ts",
+        "cc.editor.d.ts"
+    ]
 }
