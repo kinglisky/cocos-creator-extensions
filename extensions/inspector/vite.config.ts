@@ -7,7 +7,13 @@ import cocosHelper from 'vite-plugin-cocos-helper';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [vue(), shadowDomCss(), cocosHelper()],
+    plugins: [
+        vue(),
+        shadowDomCss(),
+        cocosHelper({
+            zip: process.env.ZIP ? { fileName: 'inspector-example.zip' } : undefined,
+        }),
+    ],
     build: {
         rollupOptions: {
             input: {

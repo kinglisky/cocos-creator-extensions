@@ -8,7 +8,7 @@ export default defineConfig({
         dts(),
         // vite 构建 lib 包时需要特殊处理 node 模块，将其排出
         commonjsExternals({
-            externals: ['os', 'path', 'fs'],
+            externals: ['os', 'path', 'fs', 'archiver', 'lodash/merge'],
         }),
     ],
 

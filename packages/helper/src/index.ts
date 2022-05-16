@@ -2,6 +2,7 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import merge from 'lodash/merge';
+import archiver from 'archiver';
 import type { Plugin, BuildOptions } from 'vite';
 import type { OutputAsset } from 'rollup';
 
@@ -14,7 +15,10 @@ interface ICocosHelperOptions {
         // 静态文件入口
         static?: string;
     };
-    zip?: boolean;
+    zip?: {
+        // 压缩文件名
+        fileName?: string;
+    };
 }
 
 const defaultOptions = {
@@ -23,7 +27,7 @@ const defaultOptions = {
         i18n: 'i18n',
         static: 'static',
     },
-    zip: false,
+    zip: null,
 };
 
 const isWindows = os.platform() === 'win32';
@@ -39,16 +43,10 @@ function resolvePath(root: string, p: string): string {
     return path.join(root, normalizePath(path.relative(root, p)));
 }
 
-export default function cocosRollupHelper(
-    cocosHelperOptions?: ICocosHelperOptions
-): Plugin {
+export default function cocosRollupHelper(cocosHelperOptions?: ICocosHelperOptions): Plugin {
     let configResolved: any = null;
     let originManifest: BuildOptions['manifest'] = false;
-    const mergeHelperOptions = merge(
-        {},
-        defaultOptions,
-        cocosHelperOptions || {}
-    );
+    const mergeHelperOptions: any = merge({}, defaultOptions, cocosHelperOptions || {});
     return {
         name: 'vite-plugin-cocos-helper',
 
@@ -70,17 +68,11 @@ export default function cocosRollupHelper(
         async generateBundle() {
             // 生成 i18n 文件
             const emitI18n = async () => {
-                const i18nDir = resolvePath(
-                    configResolved.root,
-                    mergeHelperOptions.path.i18n
-                );
+                const i18nDir = resolvePath(configResolved.root, mergeHelperOptions.path.i18n);
                 const i18nFiles = await fs.promises.readdir(i18nDir);
                 if (!i18nFiles.length) return;
                 const tasks = i18nFiles.map(async (file) => {
-                    let content = await fs.promises.readFile(
-                        path.resolve(i18nDir, file),
-                        'utf-8'
-                    );
+                    let content = await fs.promises.readFile(path.resolve(i18nDir, file), 'utf-8');
                     const isJSON = file.endsWith('.json');
                     if (isJSON) {
                         content = `module.exports = ${content}`;
@@ -98,19 +90,13 @@ export default function cocosRollupHelper(
             // 复制静态文件
             const emitStatic = async () => {
                 // 复制文件
-                const staticDir = resolvePath(
-                    configResolved.root,
-                    mergeHelperOptions.path.static
-                );
+                const staticDir = resolvePath(configResolved.root, mergeHelperOptions.path.static);
                 const dirName = path.relative(configResolved.root, staticDir);
                 const staticFiles = await fs.promises.readdir(staticDir);
                 if (!staticFiles.length) return;
                 const tasks = staticFiles.map(async (file) => {
                     const filePath = path.resolve(staticDir, file);
-                    const uint8Array = await fs.promises.readFile(
-                        filePath,
-                        null
-                    );
+                    const uint8Array = await fs.promises.readFile(filePath, null);
                     this.emitFile({
                         type: 'asset',
                         fileName: `${dirName}/${file}`,
@@ -118,20 +104,13 @@ export default function cocosRollupHelper(
                     });
                 });
                 await Promise.all(tasks);
-                console.log(dirName, staticFiles);
             };
 
             await emitStatic();
 
             // 生成 package.json
-            const packagePath = resolvePath(
-                configResolved.root,
-                mergeHelperOptions.path.package
-            );
-            const packageJSON = await fs.promises.readFile(
-                packagePath,
-                'utf-8'
-            );
+            const packagePath = resolvePath(configResolved.root, mergeHelperOptions.path.package);
+            const packageJSON = await fs.promises.readFile(packagePath, 'utf-8');
             this.emitFile({
                 type: 'asset',
                 fileName: 'package.json',
@@ -155,14 +134,9 @@ export default function cocosRollupHelper(
                 packageJSON,
                 (_, v) => {
                     if (typeof v === 'string') {
-                        const manifestInfo = files.find((file) =>
-                            v.endsWith(file.src)
-                        );
+                        const manifestInfo = files.find((file) => v.endsWith(file.src));
                         if (manifestInfo) {
-                            return v.replace(
-                                manifestInfo.src,
-                                manifestInfo.file
-                            );
+                            return v.replace(manifestInfo.src, manifestInfo.file);
                         }
                         return v;
                     }
@@ -178,6 +152,34 @@ export default function cocosRollupHelper(
             // 判断是否需要 manifest 文件
             if (!originManifest) {
                 await fs.promises.unlink(`${options.dir}/manifest.json`);
+            }
+            if (mergeHelperOptions.zip) {
+                const fileName =
+                    mergeHelperOptions.zip.fileName || `${packageJSON.name.split('/').pop()}.zip`;
+                const zipFiles = () => {
+                    console.log(`zip files: ${fileName}`);
+                    return new Promise((resolve) => {
+                        const output = fs.createWriteStream(
+                            resolvePath(configResolved.root, fileName)
+                        );
+                        const archive = archiver('zip', {
+                            zlib: { level: 9 },
+                        });
+
+                        output.on('close', function () {
+                            resolve(null);
+                        });
+
+                        archive.on('error', function (err) {
+                            throw err;
+                        });
+
+                        archive.pipe(output);
+                        archive.directory(options.dir!, false);
+                        archive.finalize();
+                    });
+                };
+                await zipFiles();
             }
         },
     };
