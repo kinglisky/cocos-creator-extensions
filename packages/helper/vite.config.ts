@@ -8,12 +8,11 @@ export default defineConfig({
         dts(),
         // vite 构建 lib 包时需要特殊处理 node 模块，将其排出
         commonjsExternals({
-            externals: ['path', 'fs'],
+            externals: ['os', 'path', 'fs'],
         }),
     ],
 
     build: {
-        target: 'node16',
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),
             name: 'cocosRollupHelper',

@@ -4,19 +4,10 @@ import vue from '@vitejs/plugin-vue';
 import shadowDomCss from 'vite-plugin-shadow-dom-css';
 // @ts-ignore
 import cocosHelper from 'vite-plugin-cocos-helper';
-import packageJSON from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-        vue(),
-        shadowDomCss(),
-        cocosHelper({
-            package: packageJSON,
-            i18nPath: path.resolve(__dirname, './i18n'),
-        }),
-    ],
-    publicDir: path.resolve(__dirname, './static'),
+    plugins: [vue(), shadowDomCss(), cocosHelper()],
     build: {
         rollupOptions: {
             input: {

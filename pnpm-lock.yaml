@@ -51,12 +51,17 @@ importers:
 
   packages/helper:
     specifiers:
+      '@types/lodash': ^4.14.182
+      lodash: ^4.17.21
       rollup: ^2.73.0
       typescript: ^4.5.4
       vite: ^2.9.9
       vite-plugin-commonjs-externals: ^0.1.1
       vite-plugin-dts: ^1.1.1
+    dependencies:
+      lodash: 4.17.21
     devDependencies:
+      '@types/lodash': 4.14.182
       rollup: 2.73.0
       typescript: 4.6.4
       vite: 2.9.9
