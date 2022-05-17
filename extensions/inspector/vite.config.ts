@@ -11,7 +11,9 @@ export default defineConfig({
         vue(),
         shadowDomCss(),
         cocosHelper({
-            zip: process.env.ZIP ? { fileName: 'inspector-example.zip' } : undefined,
+            zip: process.env.ZIP
+                ? { fileName: 'inspector-example.zip' }
+                : undefined,
         }),
     ],
     build: {
