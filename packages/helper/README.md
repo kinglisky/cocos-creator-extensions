@@ -39,7 +39,7 @@ export default defineConfig({
 });
 ```
 
-使用时在 package.json 直接配置元素路径，应用构建完成后插件会自动在 `outDir` 生成对应的 `package.json`、`i18n` 与 `static` 文件：
+使用时在 package.json 直接配置**原始资源路径**，应用构建完成后插件会自动替换文件路径并在 `outDir` 生成对应的 `package.json`、`i18n` 与 `static` 文件：
 
 ```json
 // 原始 package.json
@@ -145,7 +145,7 @@ const defaultOptions = {
 入口配置：
 | 参数 | 类型 | 说明 |
 | :------ | :-------------------------------- | :-------------------------------------------------------------------------------- |
-| package | 可选 `string` | package.json 文件入口，默认为 package.json 即读取项目目录下的 package.json |
+| package | 可选 `string` | package.json 文件入口，默认为 package.json 即读取项目目录下的 package.json，package.json 文件入口可配置原始资源路径|
 | i18n | 可选 `string` | i18n 配置文件目录，配置文件支持 js 与 json，json 文件最终会被转换成 cjs |
 | static | 可选 `string` | 静态文件目录，用于放置插件配置图标，请避免与 [vite publicdir](https://vitejs.dev/config/#publicdir) 一致|
 
