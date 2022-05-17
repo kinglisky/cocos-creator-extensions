@@ -2,13 +2,22 @@
 
 依赖：
 
-```base
+```bash
 pnpm i
 ```
 
-开发 cocos 扩展：
+开发
 
-```base
-pnpm run build:helper
+```bash
 pnpm run dev:inspector
 ```
+
+构建：
+
+```bash
+pnpm run build:inspector
+```
+
+其他：
+
+vite cocos creator extensions plugin： https://github.com/virtual-characters/vite-plugin-cocos-helper

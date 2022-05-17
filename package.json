@@ -3,9 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "dev:helper": "pnpm -C ./packages/helper dev",
         "dev:inspector": "pnpm -C ./extensions/inspector dev",
-        "build:helper": "pnpm -C ./packages/helper build",
         "build:inspector": "pnpm -C ./extensions/inspector build"
     },
     "keywords": [],
